@@ -246,6 +246,7 @@ colb.markdown(f'**END DATE: {end}**')
 
 date = datetime.now().date()
 formatted = date.strftime("%d-%m-%Y")
+cola,colb = st.columns(2)
 submit = cola.button('SUBMIT')
 current_time = time.localtime()
 week = time.strftime("%V", current_time)
