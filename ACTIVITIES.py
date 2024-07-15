@@ -281,6 +281,7 @@ if submit:
 
      except:
                st.write("Couldn't submit, poor network") 
+               st.write('Click the submit button again')
 
 
 
