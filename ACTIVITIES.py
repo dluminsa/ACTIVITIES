@@ -122,14 +122,14 @@ ALL =[ "BIGASA HC III","BUTENGA HC IV","KAGOGGO HC II","KIGANGAZZI HC II",
 ididistricts = ['BUKOMANSIMBI','BUTAMBALA', 'GOMBA','KALANGALA','KYOTERA', 'LYANTONDE', 'LWENGO', 'MASAKA CITY', 
                 'MASAKA DISTRICT', 'MPIGI','RAKAI', 'SEMBABULE', 'WAKISO']                                                     
 
-file = r'C:\Users\Desire Lumisa\Desktop\FORMS-main\DISTRICTS.xlsx'
-dis = pd.read_excel(file)
-dis1 = dis[dis['ORG'] == 'OTHERS'].copy()
-alldistricts = dis1['DISTRICT'].unique()
-alldistrictsidi = dis['DISTRICT'].unique()
+# file = r'PLANNED.csv'
+# dis = pd.read_excel(file)
+# dis1 = dis[dis['ORG'] == 'OTHERS'].copy()
+# alldistricts = dis1['DISTRICT'].unique()
+# alldistrictsidi = dis['DISTRICT'].unique()
 
 # Title of the Streamlit app
-#st.title("PMTCT DASHBOARD DATA ENTRY FORM")
+
 st.markdown("<h4><b>PLANNED    ACTIVITIES   TRACKER</b></h4>", unsafe_allow_html=True)
 st.markdown('***ALL ENTRIES ARE REQUIRED**')
 
@@ -179,7 +179,7 @@ else:
      pass
 area = st.radio('**CHOOSE A THEMATIC AREA**', theme, horizontal=True, index=None)
 
-planned = r'C:\Users\Desire Lumisa\Desktop\TRACKER\PLANNED.csv'
+planned = r'PLANNED.csv'
 
 dfa = pd.read_csv(planned)
 
