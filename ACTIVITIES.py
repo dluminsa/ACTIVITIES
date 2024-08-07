@@ -201,8 +201,9 @@ if not done:
      st.stop()
 elif done:
      state = activity[activity['ACTIVITY']==done]
-     statement = state['STATEMENT'].unique()
-     counts = state['COUNT'].unique()
+     statea = state[state['DISTRICT']== district].copy()
+     statement = statea['STATEMENT'].unique()
+     counts = statea['COUNT'].unique()
      statement = statement[0]
      counts = counts[0]
      st.markdown(f'**NOTE: {statement}**')
