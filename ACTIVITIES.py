@@ -132,7 +132,7 @@ ididistricts = ['BUKOMANSIMBI','BUTAMBALA', 'GOMBA','KALANGALA','KYOTERA', 'LYAN
 
 st.markdown("<h4><b>PLANNED    ACTIVITIES   TRACKER</b></h4>", unsafe_allow_html=True)
 st.markdown('***ALL ENTRIES ARE REQUIRED**')
-
+sss
 done = ''
 district = ''
 
