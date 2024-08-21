@@ -204,7 +204,12 @@ elif done:
      statea = state[state['DISTRICT']== district].copy()
      statement = statea['STATEMENT'].unique()
      counts = statea['COUNT'].unique()
-     statement = statement[0]
+     try:
+        statement = statement[0]
+     except:
+          st.write('THIS ACTIVITY MAY NOT HAVE BEEN PLANNED FOR THIS DISTRICT')
+          st.write('CONTACT YOUR TEAM LEAD FOR SUPPORT')
+          st.stop()
      counts = counts[0]
      st.markdown(f'**NOTE: {statement}**')
      colt,coly,colx = st.columns([1,1,1])
