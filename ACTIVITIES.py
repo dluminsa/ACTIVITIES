@@ -272,8 +272,8 @@ if submit:
 
                          }]) 
      st. write('SUBMITING')
+     conn = st.connection('gsheets', type=GSheetsConnection)
      if 'exist_df' not in st.session_state:
-                conn = st.connection('gsheets', type=GSheetsConnection)
                 exist = conn.read(worksheet= 'DONE', usecols=list(range(11)),ttl=1)
                 # Store the fetched data in session state
                 st.session_state['exist_df'] = exist
