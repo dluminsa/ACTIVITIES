@@ -305,7 +305,7 @@ if submit:
      else:
                 pass  
      updated = pd.concat([exist, df], ignore_index =True)
-     if updated.shape[0]<1200:
+     if updated.shape[0]<20000:
                st.info("SOMETHING WENT WRONG, RE-ENTER THIS MOTHER'S DETAILS")
                time.sleep(1)
                st.write("REFRESHING PAGE, RE-ENTER THIS MOTHER'S DETAILS")
