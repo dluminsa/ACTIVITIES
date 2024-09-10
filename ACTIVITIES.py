@@ -313,15 +313,16 @@ if submit:
                st.rerun(scope='app')
                st.stop()
      else:
+          pass
           #existing= exist.dropna(how='all')
-               updated = pd.concat([exist, df], ignore_index =True)
-               conn.update(worksheet = 'DONE', data = updated)         
-               st.success('Your data above has been submitted')
-               st.write('RELOADING PAGE')
-               time.sleep(3)
-               st.markdown("""
-               <meta http-equiv="refresh" content="0">
-                    """, unsafe_allow_html=True)
+     updated = pd.concat([exist, df], ignore_index =True)
+     conn.update(worksheet = 'DONE', data = updated)         
+     st.success('Your data above has been submitted')
+     st.write('RELOADING PAGE')
+     time.sleep(3)
+     st.markdown("""
+     <meta http-equiv="refresh" content="0">
+          """, unsafe_allow_html=True)
           
           
  
