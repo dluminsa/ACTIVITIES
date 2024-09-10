@@ -288,32 +288,32 @@ if submit:
                time.sleep(2)
                st.rerun(scope='app')
                st.stop()
-           else:
+          else:
                pass 
-           if 'my_df' not in st.session_state:
+          if 'my_df' not in st.session_state:
                st.session_state['my_df'] = df
-           else:
+          else:
                 pass
-           df = st.session_state['my_df']
+          df = st.session_state['my_df']
                          
-           if df.shape[0]==0:
+          if df.shape[0]==0:
                 st.write('YOUR ENTRIES FOR THIS MOTHER WERE NOT CAPTURED')
                 time.sleep(1)
                 st.info("REFRESHING PAGE, RE-ENTER THIS MOTHER'S DETAILS")
                 time.sleep(2)
                 st.rerun(scope='app')
                 st.stop()
-           else:
+          else:
                 pass  
-           updated = pd.concat([exist, df], ignore_index =True)
-           if updated.shape[0]<1200:
+          updated = pd.concat([exist, df], ignore_index =True)
+          if updated.shape[0]<1200:
                st.info("SOMETHING WENT WRONG, RE-ENTER THIS MOTHER'S DETAILS")
                time.sleep(1)
                st.write("REFRESHING PAGE, RE-ENTER THIS MOTHER'S DETAILS")
                time.sleep(2)
                st.rerun(scope='app')
                st.stop()
-           else:
+          else:
           #existing= exist.dropna(how='all')
                updated = pd.concat([existing, df], ignore_index =True)
                conn.update(worksheet = 'DONE', data = updated)         
