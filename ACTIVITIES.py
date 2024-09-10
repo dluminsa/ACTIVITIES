@@ -313,7 +313,7 @@ if submit:
                st.stop()
      else:
           #existing= exist.dropna(how='all')
-               updated = pd.concat([existing, df], ignore_index =True)
+               updated = pd.concat([exist, df], ignore_index =True)
                conn.update(worksheet = 'DONE', data = updated)         
                st.success('Your data above has been submitted')
                st.write('RELOADING PAGE')
