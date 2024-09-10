@@ -280,14 +280,47 @@ if submit:
      else:
                exist = st.session_state['exist_df']
      if exist.shape[0]<1200:
-               st.info("SOMETHING WENT WRONG, COULDN'T CONNECT TO DATABASE")
+              st.info("SOMETHING WENT WRONG, COULDN'T CONNECT TO DATABASE")
                time.sleep(1)
                st.write("REFRESHING PAGE, RE-ENTER THIS PAPERWORK DETAILS")
                time.sleep(2)
                st.rerun(scope='app')
                st.stop()
      else:
-               pass
+               pass 
+     if 'my_df' not in st.session_state:
+               st.session_state['my_df'] = df
+     else:
+                pass
+     df = st.session_state['my_df']
+                         
+     if df.shape[0]==0:
+                st.write('YOUR ENTRIES FOR THIS MOTHER WERE NOT CAPTURED')
+                time.sleep(1)
+                st.info("REFRESHING PAGE, RE-ENTER THIS MOTHER'S DETAILS")
+                time.sleep(2)
+                st.rerun(scope='app')
+                st.stop()
+     else:
+                pass  
+          updated = pd.concat([exist, df], ignore_index =True)
+     if updated.shape[0]<1200:
+               st.info("SOMETHING WENT WRONG, RE-ENTER THIS MOTHER'S DETAILS")
+               time.sleep(1)
+               st.write("REFRESHING PAGE, RE-ENTER THIS MOTHER'S DETAILS")
+               time.sleep(2)
+               st.rerun(scope='app')
+               st.stop()
+     else:
+          #existing= exist.dropna(how='all')
+               updated = pd.concat([existing, df], ignore_index =True)
+               conn.update(worksheet = 'DONE', data = updated)         
+               st.success('Your data above has been submitted')
+               st.write('RELOADING PAGE')
+               time.sleep(3)
+               st.markdown("""
+               <meta http-equiv="refresh" content="0">
+                    """, unsafe_allow_html=True)
           
           
  
