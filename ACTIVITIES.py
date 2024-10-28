@@ -297,7 +297,7 @@ if submit:
                 pass
           df = st.session_state['my_df']
                          
-          if df.shape[0]==0:
+          if df.shape[0]<0:
                 st.write('YOUR ENTRIES FOR THIS MOTHER WERE NOT CAPTURED')
                 time.sleep(1)
                 st.info("REFRESHING PAGE, RE-ENTER THIS MOTHER'S DETAILS")
