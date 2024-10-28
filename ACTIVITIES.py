@@ -282,7 +282,7 @@ if submit:
                 st.session_state['exist_df'] = exist
           else:
                exist = st.session_state['exist_df']
-          if exist.shape[0]<1200:
+          if exist.shape[0]<0:
                st.info("SOMETHING WENT WRONG, COULDN'T CONNECT TO DATABASE")
                time.sleep(1)
                st.write("REFRESHING PAGE, RE-ENTER THIS PAPERWORK DETAILS")
