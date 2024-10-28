@@ -4,6 +4,7 @@ from streamlit_gsheets import GSheetsConnection
 import traceback
 import streamlit as st
 import time
+import gspread
 import datetime as dt
 from datetime import datetime, date
 from google.oauth2.service_account import Credentials
