@@ -310,6 +310,9 @@ formatted = str(formatted)
 start = str(start)
 end = str(end)
 row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, week, money]
+
+dfp = pd.DataFrame(arts, columns=['ART NO.s'])
+st.write(dfp)
                
     # Prepare the credentials dictionary
 credentials_info = {
