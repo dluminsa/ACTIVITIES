@@ -238,7 +238,7 @@ if number and start and end:
 else:
      st.stop()
 if area == 'PMTCT':
-     money = cola.number_input(label=f'**{HOW MUCH ARE YOU PAYING?}**', value=None, max_value=None, min_value=None,step=1, format="%d")
+     money = cola.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
 else:
      pass
 
