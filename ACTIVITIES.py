@@ -314,6 +314,10 @@ end = str(end)
 row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, week, money]
 
 dfp = pd.DataFrame(ARTS, columns=['ART NO.s'])
+dfp['DISTRICT'] = np.nan
+dfp['FACILITY'] = np.nan
+dfp['DISTRICT'] = dfp['DISTRICT'].fillna(district)
+dfp['FACILITY'] = dfp['FACILITY'].fillna(facility)
 st.write(dfp)
                
     # Prepare the credentials dictionary
