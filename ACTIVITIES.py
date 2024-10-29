@@ -228,7 +228,7 @@ elif done:
           pass
 
      if done == 'ICSDM':
-          if not number:
+          if not (number and start and end):
                st.stop()
           else:
                st.info('**KINDLY INCLUDE THE ART NOs. FOR NS THAT WERE VISITED**')
