@@ -140,7 +140,7 @@ st.markdown('***ALL ENTRIES ARE REQUIRED**')
 #sss
 done = ''
 district = ''
-money = 0
+money = ''
 theme = ['CARE', 'TB', 'PMTCT', 'CQI']
 # Radio button to select a district
 
