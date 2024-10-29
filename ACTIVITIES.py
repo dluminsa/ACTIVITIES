@@ -218,13 +218,13 @@ elif done:
      counts = counts[0]
      st.markdown(f'**NOTE: {statement}**')
      colt,coly,colx = st.columns([1,1,1])
-     if area == 'PMTCT':
-          money = cola.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
-     else:
-          pass
      number = colt.number_input(label=f'**{counts}**', value=None, max_value=None, min_value=None,step=1, format="%d")
      start = coly.date_input(label='**ACTIVITY START DATE**', value=None)
      end = colx.date_input(label='**END DATE**',value=None)
+     if area == 'PMTCT':
+          money = colt.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
+     else:
+          pass
      # Get the current date and time
 current_datetime = datetime.now()
 #today = current_datetime.strftime('%y/%m/%d')
