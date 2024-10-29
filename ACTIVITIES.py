@@ -218,6 +218,10 @@ elif done:
      counts = counts[0]
      st.markdown(f'**NOTE: {statement}**')
      colt,coly,colx = st.columns([1,1,1])
+     if area == 'PMTCT':
+          money = cola.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
+     else:
+          pass
      number = colt.number_input(label=f'**{counts}**', value=None, max_value=None, min_value=None,step=1, format="%d")
      start = coly.date_input(label='**ACTIVITY START DATE**', value=None)
      end = colx.date_input(label='**END DATE**',value=None)
@@ -237,10 +241,6 @@ if number and start and end:
           pass
 else:
      st.stop()
-if area == 'PMTCT':
-     money = cola.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
-else:
-     pass
 
 st.write(f"UNIQUE ID: {st.session_state['unique_number']}")
 unique = st.session_state['unique_number']
