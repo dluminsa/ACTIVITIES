@@ -291,7 +291,7 @@ colb.markdown(f'**{counts}: {number}**')
 colb.markdown(f'**START DATE: {start}**')
 colb.markdown(f'**END DATE: {end}**')
 
-if activity == 'ICSDM':
+if done == 'ICSDM':
      st.write(dfp)
 else:
      pass
