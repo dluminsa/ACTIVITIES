@@ -228,17 +228,17 @@ elif done:
      else:
           pass
 
-     if done == 'ICSDM':
-          if not (number and start and end):
-               st.stop()
-          else:
-               st.info('**KINDLY INCLUDE THE ART NOs FOR NS THAT WERE VISITED**')
-               num = int(number)
-               ARTS = []
-               for i in range (num+1):
-                    colt,coly,colx = st.columns([1,1,1])
-                    arts = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
-                    ARTS.append(arts)
+     # if done == 'ICSDM':
+     #      if not (number and start and end):
+     #           st.stop()
+     #      else:
+     #           st.info('**KINDLY INCLUDE THE ART NOs FOR NS THAT WERE VISITED**')
+     #           num = int(number)
+     #           ARTS = []
+     #           for i in range (num+1):
+     #                colt,coly,colx = st.columns([1,1,1])
+     #                arts = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
+     #                ARTS.append(arts)
                     
           
      # Get the current date and time
@@ -264,12 +264,12 @@ if area == 'PMTCT':
           st.warning('**CHECK WHETHER THE MONEY IS LESS THAN 10,000**')
 else:
      pass
-dfp = pd.DataFrame(ARTS, columns=['ART NOs'])
-dfp['DISTRICT'] = np.nan
-dfp['FACILITY'] = np.nan
-dfp['DISTRICT'] = dfp['DISTRICT'].fillna(district)
-dfp['FACILITY'] = dfp['FACILITY'].fillna(facility)
-dfp = dfp[['DISTRICT', 'FACILITY', 'ART NOs']]
+# dfp = pd.DataFrame(ARTS, columns=['ART NOs'])
+# dfp['DISTRICT'] = np.nan
+# dfp['FACILITY'] = np.nan
+# dfp['DISTRICT'] = dfp['DISTRICT'].fillna(district)
+# dfp['FACILITY'] = dfp['FACILITY'].fillna(facility)
+# dfp = dfp[['DISTRICT', 'FACILITY', 'ART NOs']]
 
 st.write(f"UNIQUE ID: {st.session_state['unique_number']}")
 unique = st.session_state['unique_number']
@@ -291,10 +291,10 @@ colb.markdown(f'**{counts}: {number}**')
 colb.markdown(f'**START DATE: {start}**')
 colb.markdown(f'**END DATE: {end}**')
 
-if done == 'ICSDM':
-     st.write(dfp)
-else:
-     pass
+# if done == 'ICSDM':
+#      st.write(dfp)
+# else:
+#      pass
 
 date = datetime.now().date()
 formatted = date.strftime("%d-%m-%Y")
