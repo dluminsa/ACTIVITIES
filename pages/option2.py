@@ -270,6 +270,12 @@ if done:
                     ends.append(end)
           else:
                st.stop()
+               
+     if area == 'PMTCT':
+          money = colt.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
+     else:
+          pass
+
 
 if num==1:
      districts = [districts[0]]
