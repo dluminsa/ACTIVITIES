@@ -227,7 +227,8 @@ elif done:
 
      if done == 'ICSDM':
           st.info('**KINDLY INCLUDE THE ART NOs. FOR NS THAT WERE VISITED**')
-          for i in range (int(number)+1):
+          num = int(number)
+          for i in range (num+1):
                colt,coly,colx = st.columns([1,1,1])
                number = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
                
