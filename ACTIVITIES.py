@@ -201,7 +201,6 @@ if area:
 else:
      st.stop()
 
-
 if not done:
      st.stop()
 elif done:
@@ -244,8 +243,8 @@ else:
 if area == 'PMTCT':
      if not money:
         st.stop()
-     else:
-          pass
+     elif money <10000:
+          st.warning('**CHECK WHETHER THE MONEY IS LESS THAN 10,000**')
 else:
      pass
 
