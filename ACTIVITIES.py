@@ -264,6 +264,12 @@ if area == 'PMTCT':
           st.warning('**CHECK WHETHER THE MONEY IS LESS THAN 10,000**')
 else:
      pass
+dfp = pd.DataFrame(ARTS, columns=['ART NOs'])
+dfp['DISTRICT'] = np.nan
+dfp['FACILITY'] = np.nan
+dfp['DISTRICT'] = dfp['DISTRICT'].fillna(district)
+dfp['FACILITY'] = dfp['FACILITY'].fillna(facility)
+dfp = dfp[['DISTRICT', 'FACILITY', 'ART NOs']]
 
 st.write(f"UNIQUE ID: {st.session_state['unique_number']}")
 unique = st.session_state['unique_number']
@@ -284,6 +290,11 @@ colb.write(f'**ACTIVITY: {done}**')
 colb.markdown(f'**{counts}: {number}**')
 colb.markdown(f'**START DATE: {start}**')
 colb.markdown(f'**END DATE: {end}**')
+
+if activity == 'ICSDM':
+     st.write(dfp)
+else:
+     pass
 
 date = datetime.now().date()
 formatted = date.strftime("%d-%m-%Y")
@@ -313,15 +324,6 @@ formatted = str(formatted)
 start = str(start)
 end = str(end)
 row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, week, money]
-
-dfp = pd.DataFrame(ARTS, columns=['ART NOs'])
-dfp['DISTRICT'] = np.nan
-dfp['FACILITY'] = np.nan
-dfp['DISTRICT'] = dfp['DISTRICT'].fillna(district)
-dfp['FACILITY'] = dfp['FACILITY'].fillna(facility)
-dfp = dfp[['DISTRICT', 'FACILITY', 'ART NOs']]
-
-st.write(dfp)
                
     # Prepare the credentials dictionary
 credentials_info = {
