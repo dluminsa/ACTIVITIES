@@ -228,12 +228,15 @@ elif done:
           pass
 
      if done == 'ICSDM':
-          st.info('**KINDLY INCLUDE THE ART NOs. FOR NS THAT WERE VISITED**')
-          num = int(number)
-          for i in range (num+1):
-               colt,coly,colx = st.columns([1,1,1])
-               number = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
-               
+          if not number:
+               st.stop()
+          else:
+               st.info('**KINDLY INCLUDE THE ART NOs. FOR NS THAT WERE VISITED**')
+               num = int(number)
+               for i in range (num+1):
+                    colt,coly,colx = st.columns([1,1,1])
+                    number = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
+                    
           
      # Get the current date and time
 current_datetime = datetime.now()
@@ -301,7 +304,6 @@ df = pd.DataFrame([{ 'DATE OF SUBMISSION': formatted,
                     'WEEK': week
 
                     }]) 
-
 
 secrets = st.secrets["connections"]["gsheets"]
 formatted = str(formatted)
