@@ -256,11 +256,13 @@ if area == 'PMTCT':
      cola.markdown(f'**AMOUNT: {money}**')
 else:
      pass
-if area == 'PMTCT' and not money:
-     st.stop()
+if area == 'PMTCT':
+     if not money:
+        st.stop()
+     else:
+          pass
 else:
      pass
-
 
 colb.write(f'**ACTIVITY: {done}**')
 colb.markdown(f'**{counts}: {number}**')
