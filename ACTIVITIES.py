@@ -232,7 +232,7 @@ elif done:
           if not (number and start and end):
                st.stop()
           else:
-               st.info('**KINDLY INCLUDE THE ART NOs. FOR NS THAT WERE VISITED**')
+               st.info('**KINDLY INCLUDE THE ART NOs FOR NS THAT WERE VISITED**')
                num = int(number)
                ARTS = []
                for i in range (num+1):
@@ -314,11 +314,13 @@ start = str(start)
 end = str(end)
 row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, week, money]
 
-dfp = pd.DataFrame(ARTS, columns=['ART NO.s'])
+dfp = pd.DataFrame(ARTS, columns=['ART NOs'])
 dfp['DISTRICT'] = np.nan
 dfp['FACILITY'] = np.nan
 dfp['DISTRICT'] = dfp['DISTRICT'].fillna(district)
 dfp['FACILITY'] = dfp['FACILITY'].fillna(facility)
+dfp = dfp[['DISTRICT', 'FACILITY', 'ART NOs']]
+
 st.write(dfp)
                
     # Prepare the credentials dictionary
