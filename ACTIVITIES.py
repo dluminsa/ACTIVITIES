@@ -235,7 +235,7 @@ elif done:
                num = int(number)
                for i in range (num+1):
                     colt,coly,colx = st.columns([1,1,1])
-                    number = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
+                    arts = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
                     
           
      # Get the current date and time
