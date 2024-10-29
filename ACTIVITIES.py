@@ -256,6 +256,10 @@ if area == 'PMTCT':
      cola.markdown(f'**AMOUNT: {money}**')
 else:
      pass
+if area == 'PMTCT' and not money:
+     st.stop()
+else:
+     pass
 
 
 colb.write(f'**ACTIVITY: {done}**')
@@ -291,7 +295,7 @@ secrets = st.secrets["connections"]["gsheets"]
 formatted = str(formatted)
 start = str(start)
 end = str(end)
-row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, week]
+row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, week, money]
                
     # Prepare the credentials dictionary
 credentials_info = {
