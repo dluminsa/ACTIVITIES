@@ -233,9 +233,11 @@ elif done:
           else:
                st.info('**KINDLY INCLUDE THE ART NOs. FOR NS THAT WERE VISITED**')
                num = int(number)
+               ARTS = []
                for i in range (num+1):
                     colt,coly,colx = st.columns([1,1,1])
                     arts = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
+                    ARTS.append(arts)
                     
           
      # Get the current date and time
@@ -311,7 +313,7 @@ start = str(start)
 end = str(end)
 row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, week, money]
 
-dfp = pd.DataFrame([arts], columns=['ART NO.s'])
+dfp = pd.DataFrame(ARTS, columns=['ART NO.s'])
 st.write(dfp)
                
     # Prepare the credentials dictionary
