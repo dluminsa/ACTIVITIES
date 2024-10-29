@@ -241,6 +241,13 @@ if number and start and end:
           pass
 else:
      st.stop()
+if area == 'PMTCT':
+     if not money:
+        st.stop()
+     else:
+          pass
+else:
+     pass
 
 st.write(f"UNIQUE ID: {st.session_state['unique_number']}")
 unique = st.session_state['unique_number']
@@ -254,13 +261,6 @@ cola.markdown(f'**FACILITY: {facility}**')
 cola.markdown(f'**THEMATIC AREA: {area}**')
 if area == 'PMTCT':
      cola.markdown(f'**AMOUNT: {money}**')
-else:
-     pass
-if area == 'PMTCT':
-     if not money:
-        st.stop()
-     else:
-          pass
 else:
      pass
 
