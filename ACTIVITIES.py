@@ -140,7 +140,7 @@ st.markdown('***ALL ENTRIES ARE REQUIRED**')
 #sss
 done = ''
 district = ''
-
+money = 0
 theme = ['CARE', 'TB', 'PMTCT', 'CQI']
 # Radio button to select a district
 
@@ -237,6 +237,10 @@ if number and start and end:
           pass
 else:
      st.stop()
+if area == 'PMTCT':
+     money = cola.number_input(label=f'**{HOW MUCH ARE YOU PAYING?}**', value=None, max_value=None, min_value=None,step=1, format="%d")
+else:
+     pass
 
 st.write(f"UNIQUE ID: {st.session_state['unique_number']}")
 unique = st.session_state['unique_number']
@@ -248,6 +252,10 @@ cola.write(f"**UNIQUE ID: {st.session_state['unique_number']}**")
 cola.markdown(f'**DISTRICT: {district}**')
 cola.markdown(f'**FACILITY: {facility}**')
 cola.markdown(f'**THEMATIC AREA: {area}**')
+if area == 'PMTCT':
+     cola.markdown(f'**AMOUNT: {money}**')
+else:
+     pass
 
 
 colb.write(f'**ACTIVITY: {done}**')
