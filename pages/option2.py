@@ -317,8 +317,8 @@ if area =='PMTCT':
      df2['DISTRICT'] = df2['DISTRICT'].fillna(district)
      df2['ACTIVITY'] = np.nan
      activity = activit[0]
-     st.write(activit)
-     df2['ACTIVITY'] = df2['ACTIVITY'].fillna(activit)
+     st.write(activity)
+     df2['ACTIVITY'] = df2['ACTIVITY'].fillna(activity)
      df2 = df2[['DISTRICT', 'ACTIVITY', 'AMOUNT']].copy()
 else:
      pass
