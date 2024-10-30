@@ -310,9 +310,10 @@ df = pd.DataFrame({
           'ID': uniques,
           'WEEK': weeks
           })
-
-
-df2 = pd.DataFrame([money], columns = ['AMOUNT'])
+if area ==PMTCT:
+     df2 = pd.DataFrame([money], columns = ['AMOUNT'])
+else:
+     pass
 district = districts[0]
 df2['DISTRICT'] = np.nan
 df2['DISTRICT'] = df2['DISTRICT'].fillna(district)
@@ -364,10 +365,14 @@ if submit:
           exist = conn.read(worksheet= 'DONE', usecols=list(range(11)),ttl=5)
           existing= exist.dropna(how='all')
           updated = pd.concat([existing, df], ignore_index =True)
-          conn.update(worksheet = 'DONE', data = updated)    
-          exist2 = conn.read(worksheet= 'PMTCT', usecols=list(range(11)),ttl=5)
-          existing2= exist2.dropna(how='all')
-          updated = pd.concat([existing2, df2], ignore_index =True)
+          conn.update(worksheet = 'DONE', data = updated)  
+          if area == PMTCT:
+               exist2 = conn.read(worksheet= 'PMTCT', usecols=list(range(11)),ttl=5)
+               existing2= exist2.dropna(how='all')
+               updated = pd.concat([existing2, df2], ignore_index =True)
+               conn.update(worksheet = 'PMTCT', data = updated)
+          else:
+               pass
           st.success('Your data above has been submitted')
           st.write('RELOADING PAGE')
           time.sleep(3)
