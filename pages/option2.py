@@ -310,7 +310,7 @@ df = pd.DataFrame({
           'ID': uniques,
           'WEEK': weeks
           })
-if area ==PMTCT:
+if area =='PMTCT':
      df2 = pd.DataFrame([money], columns = ['AMOUNT'])
 else:
      pass
@@ -366,7 +366,7 @@ if submit:
           existing= exist.dropna(how='all')
           updated = pd.concat([existing, df], ignore_index =True)
           conn.update(worksheet = 'DONE', data = updated)  
-          if area == PMTCT:
+          if area == 'PMTCT':
                exist2 = conn.read(worksheet= 'PMTCT', usecols=list(range(11)),ttl=5)
                existing2= exist2.dropna(how='all')
                updated = pd.concat([existing2, df2], ignore_index =True)
