@@ -275,7 +275,11 @@ if done:
           money = colt.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
      else:
           pass
-
+     if area == 'PMTCT':
+          if not money:
+             st.stop()
+          elif money <10000:
+               st.warning('**CHECK WHETHER THE MONEY IS LESS THAN 10,000**')
 
 if num==1:
      districts = [districts[0]]
