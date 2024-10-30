@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 import streamlit as st
-import umpy as np
+import numpy as np
 import time
 import datetime as dt
 from datetime import datetime, date
