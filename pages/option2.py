@@ -191,7 +191,7 @@ if area:
       done = col1.selectbox(f'**SELECT THE {area} ACTIVITY YOU ARE PAYING FOR**', activities, index=None)
 else:
      st.stop()
-
+doned = done.copy()
 if not done:
      st.stop()
 elif done:
@@ -316,9 +316,7 @@ if area =='PMTCT':
      df2['DISTRICT'] = np.nan
      df2['DISTRICT'] = df2['DISTRICT'].fillna(district)
      df2['ACTIVITY'] = np.nan
-     activity = activit[0]
-     st.write(activity)
-     df2['ACTIVITY'] = df2['ACTIVITY'].fillna(activity)
+     df2['ACTIVITY'] = df2['ACTIVITY'].fillna(doned)
      df2 = df2[['DISTRICT', 'ACTIVITY', 'AMOUNT']].copy()
 else:
      pass
