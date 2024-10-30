@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 import streamlit as st
+import umpy as np
 import time
 import datetime as dt
 from datetime import datetime, date
@@ -311,7 +312,15 @@ df = pd.DataFrame({
           })
 
 
-
+df2 = pd.DataFrame([money], columns = ['AMOUNT'])
+district = districts[0]
+df2['DISTRICT'] = np.nan
+df2['DISTRICT'] = df2['DISTRICT'].fillna(district)
+df2['ACTIVITY'] = np.nan
+df2['ACTIVITY'] = df2['ACTIVITY'].fillna(activit)
+df2 = df2[['DISTRICT', 'ACTIVITY', 'AMOUNT']].copy()
+                                         
+                                         
 dfd = df[df.duplicated(subset='FACILITY')]
 check = dfd.shape[0]
 
@@ -335,6 +344,10 @@ colb.markdown(f'**FACILITY: {facility}**')
 colb.markdown(f'**THEMATIC AREA: {area}**')
 cola,colb,colc = st.columns(3)
 colb.write(f'**ACTIVITY: {done}**')
+if area == 'PMTCT':
+     cola.markdown(f'**AMOUNT: {money}**')
+else:
+     pass
 
 dfa = df[['FACILITY', 'DONE', 'START DATE', 'END DATE']].copy()
 
@@ -345,14 +358,16 @@ submit = colb.button('**SUBMIT**')
 
 
 if submit:
- 
      try:
           st. write('SUBMITING')
           conn = st.connection('gsheets', type=GSheetsConnection)
           exist = conn.read(worksheet= 'DONE', usecols=list(range(11)),ttl=5)
           existing= exist.dropna(how='all')
           updated = pd.concat([existing, df], ignore_index =True)
-          conn.update(worksheet = 'DONE', data = updated)         
+          conn.update(worksheet = 'DONE', data = updated)    
+          exist2 = conn.read(worksheet= 'PMTCT', usecols=list(range(11)),ttl=5)
+          existing2= exist2.dropna(how='all')
+          updated = pd.concat([existing2, df2], ignore_index =True)
           st.success('Your data above has been submitted')
           st.write('RELOADING PAGE')
           time.sleep(3)
