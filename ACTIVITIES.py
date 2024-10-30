@@ -283,6 +283,7 @@ cola.markdown(f'**FACILITY: {facility}**')
 cola.markdown(f'**THEMATIC AREA: {area}**')
 if area == 'PMTCT':
      cola.markdown(f'**AMOUNT: {money}**')
+     mon = [district, facility, money]
 else:
      pass
 
@@ -362,7 +363,9 @@ except Exception as e:
 if submit:
         try:
             sheet1 = spreadsheet.worksheet("DONE")
+            sheet2 = spreadsheet.worksheet("PMTCT")
             sheet1.append_row(row1, value_input_option='RAW')
+            sheet2.append_row(mon, value_input_option='RAW')
             st.success('Your data above has been submitted')
             time.sleep(2)
             st.write('RELOADING PAGE')
