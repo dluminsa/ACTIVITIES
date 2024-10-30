@@ -189,8 +189,7 @@ activities = activity['ACTIVITY'].unique()
 col1,col2 = st.columns([2,1])
 if area:
       done = col1.selectbox(f'**SELECT THE {area} ACTIVITY YOU ARE PAYING FOR**', activities, index=None)
-      st.write(done)
-      #doned = done.copy()
+      doned = done
 else:
      st.stop()
 
