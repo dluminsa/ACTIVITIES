@@ -142,6 +142,7 @@ st.markdown('***ALL ENTRIES ARE REQUIRED**')
 done = ''
 district = ''
 money = ''
+mon = ''
 theme = ['CARE', 'TB', 'PMTCT', 'CQI']
 # Radio button to select a district
 
