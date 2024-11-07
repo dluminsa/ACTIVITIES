@@ -372,8 +372,8 @@ if submit:
             #sheet2 = spreadsheet.worksheet("PMTCT")
             sheet1.append_row(row1, value_input_option='RAW')
             #sheet2.append_row(value_input_option='RAW')
-            # st.success('Your data above has been submitted')
-            # time.sleep(2)
+            st.success('Your data above has been submitted')
+            time.sleep(2)
             st.write('RELOADING PAGE')
             time.sleep(3)
             st.markdown("""
