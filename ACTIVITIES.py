@@ -363,8 +363,8 @@ except Exception as e:
     st.write("COULDN'T CONNECT TO GOOGLE SHEET, TRY AGAIN")
     st.stop()
 if submit:
-        if are!= 'PMTCT':
-             mon = ' '
+        if area!= 'PMTCT':
+             mon = 0
         else:
              pass
         try:
