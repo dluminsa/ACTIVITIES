@@ -286,6 +286,7 @@ if area == 'PMTCT':
      cola.markdown(f'**AMOUNT: {money}**')
      mon = [district, facility, money]
 else:
+     mon = None
      pass
 
 colb.write(f'**ACTIVITY: {done}**')
