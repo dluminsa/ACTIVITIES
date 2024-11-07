@@ -363,6 +363,10 @@ except Exception as e:
     st.write("COULDN'T CONNECT TO GOOGLE SHEET, TRY AGAIN")
     st.stop()
 if submit:
+        if are!= 'PMTCT':
+             mon = ' '
+        else:
+             pass
         try:
             sheet1 = spreadsheet.worksheet("DONE")
             sheet2 = spreadsheet.worksheet("PMTCT")
