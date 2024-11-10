@@ -305,7 +305,7 @@ cola,colb = st.columns(2)
 submit = cola.button('SUBMIT')
 current_time = time.localtime()
 week = time.strftime("%V", current_time)
-week = int(week)-39
+wek = int(week)-39
 
 #if submit:
 df = pd.DataFrame([{ 'DATE OF SUBMISSION': formatted,
@@ -326,7 +326,7 @@ secrets = st.secrets["connections"]["gsheets"]
 formatted = str(formatted)
 start = str(start)
 end = str(end)
-row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, week, money]
+row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, wek, money]
                
     # Prepare the credentials dictionary
 credentials_info = {
@@ -363,10 +363,10 @@ except Exception as e:
     st.write("COULDN'T CONNECT TO GOOGLE SHEET, TRY AGAIN")
     st.stop()
 if submit:
-        if area!= 'PMTCT':
-             mon = 0
-        else:
-             pass
+        # if area!= 'PMTCT':
+        #      mon = 0
+        # else:
+        #      pass
         try:
             sheet1 = spreadsheet.worksheet("DONE")
             #sheet2 = spreadsheet.worksheet("PMTCT")
