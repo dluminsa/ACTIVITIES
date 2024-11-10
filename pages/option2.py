@@ -247,7 +247,7 @@ if done:
           clusters.append(clustery)
           districty = district
           districts.append(districty)
-          weeky = week
+          weeky =int(week)-39
           uniquey = st.session_state['unique_number'] 
           areay = area
           doney = done
