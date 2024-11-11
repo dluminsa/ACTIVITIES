@@ -150,9 +150,9 @@ cluster = st.radio("**Choose a cluster:**", list(CLUSTER.keys()),horizontal=True
 # Show the facilities for the selected district and allow selection
 if cluster is not None:
     districts = CLUSTER[cluster]
-    st.write(districts)
+    
     district = st.radio(f"**Choose a district in {cluster} cluster:**", districts, horizontal=True, index=None)
-    st.write(district)
+    districts = [district]
 
 def generate_unique_number():
     f = dt.datetime.now()  # Get the current datetime
@@ -203,7 +203,7 @@ current_time = time.localtime()
 week = time.strftime("%V", current_time)
 datey = datetime.now().date()
 formatted = datey.strftime("%d-%m-%Y")
-st.write(district)
+#st.write(district)
 if done: 
      state = activity[activity['ACTIVITY']==done]
      statea = state[state['DISTRICT']== district].copy()
@@ -230,7 +230,7 @@ if done:
      else:
           st.markdown(f'**NOTE: {statement}**')
 
-     st.write(district)
+     #st.write(district)
      for i in range(num):
           colt,coly,colx = st.columns([1,1,1])
           colt.write(f'**FACILITY {i+1}**')
@@ -284,7 +284,7 @@ if done:
              st.stop()
           elif money <10000:
                st.warning('**CHECK WHETHER THE MONEY IS LESS THAN 10,000**')
-st.write(f'{districts} this')
+#st.write(f'{districts} this')
 
 if num==1:
      districts = [districts[0]]
@@ -356,7 +356,7 @@ else:
      pass
 
 dfa = df[['FACILITY', 'DONE', 'START DATE', 'END DATE']].copy()
-st.write(df)
+#st.write(df)
 
 uniques = df['FACILITY']
 cola,colb = st.columns([3,1])
