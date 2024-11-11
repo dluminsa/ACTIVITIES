@@ -378,7 +378,7 @@ if submit:
             time.sleep(2)
             st.write('RELOADING PAGE')
             time.sleep(3)
-            st.write(f'{unique} HEY'}
+            st.write(f'{unique} HEY')
             time.sleep(5)
             st.markdown("""
                <meta http-equiv="refresh" content="0">
