@@ -284,6 +284,7 @@ if done:
              st.stop()
           elif money <10000:
                st.warning('**CHECK WHETHER THE MONEY IS LESS THAN 10,000**')
+st.write(f'{districts} this')
 
 if num==1:
      districts = [districts[0]]
