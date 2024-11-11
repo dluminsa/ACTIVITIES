@@ -274,7 +274,7 @@ else:
 # dfp = dfp[['DISTRICT', 'FACILITY', 'ART NOs']]
 
 st.write(f"UNIQUE ID: {st.session_state['unique_number']}")
-unique = st.session_state['unique_number']
+unique = st.session_state['unique_number'] 
 col1,col2, col3 = st.columns([1,1,2])
 col2.write('**SUMMARY**')
 
@@ -378,6 +378,8 @@ if submit:
             time.sleep(2)
             st.write('RELOADING PAGE')
             time.sleep(3)
+            st.write(f'{unique} HEY'}
+            time.sleep(5)
             st.markdown("""
                <meta http-equiv="refresh" content="0">
                     """, unsafe_allow_html=True)
