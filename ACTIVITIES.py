@@ -327,7 +327,7 @@ secrets = st.secrets["connections"]["gsheets"]
 formatted = str(formatted)
 start = str(start)
 end = str(end)
-unique = int(unique)
+unique = str(unique)
 row1 =[ formatted, cluster,district, facility, area, done, number, start, end, unique, wek, money]
                
     # Prepare the credentials dictionary
@@ -378,8 +378,6 @@ if submit:
             time.sleep(2)
             st.write('RELOADING PAGE')
             time.sleep(3)
-            st.write(f'{unique} HEY')
-            time.sleep(5)
             st.markdown("""
                <meta http-equiv="refresh" content="0">
                     """, unsafe_allow_html=True)
