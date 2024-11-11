@@ -353,6 +353,7 @@ else:
      pass
 
 dfa = df[['FACILITY', 'DONE', 'START DATE', 'END DATE']].copy()
+st.write(df)
 
 uniques = df['FACILITY']
 cola,colb = st.columns([3,1])
