@@ -5,7 +5,7 @@ import traceback
 import streamlit as st
 import time
 import numpy as np
-#ddf
+sdd
 import gspread
 import datetime as dt
 from datetime import datetime, date
@@ -307,7 +307,7 @@ submit = cola.button('SUBMIT')
 current_time = time.localtime()
 week = time.strftime("%V", current_time)
 wek = int(week)-39
-unique = 'THIS'
+
 #if submit:
 df = pd.DataFrame([{ 'DATE OF SUBMISSION': formatted,
                     'CLUSTER': cluster,
