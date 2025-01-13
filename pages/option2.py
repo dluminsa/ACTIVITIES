@@ -125,6 +125,7 @@ ididistricts = ['BUKOMANSIMBI','BUTAMBALA', 'GOMBA','KALANGALA','KYOTERA', 'LYAN
                 'MASAKA DISTRICT', 'MPIGI','RAKAI', 'SEMBABULE', 'WAKISO']                                                     
 
 numbers = []
+amounts = []
 dates = []
 weeks = []
 areas = []
@@ -203,7 +204,6 @@ current_time = time.localtime()
 week = time.strftime("%V", current_time)
 datey = datetime.now().date()
 formatted = datey.strftime("%d-%m-%Y")
-#st.write(district)
 if done: 
      state = activity[activity['ACTIVITY']==done]
      statea = state[state['DISTRICT']== district].copy()
@@ -245,15 +245,29 @@ if done:
           number = colt.number_input(label=f'**{counts}**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
           start = coly.date_input(label='**ACTIVITY START DATE**', value=None, key=f'a{i}')
           end = colx.date_input(label='**END DATE**',value=None, key= f'b{i}')
+          amount = colt.number_input(label='**HOW MUCH ARE YOU PAYING FOR THIS FACILITY**', value=None, max_value= None, min_value=10000,step=1, format="%d", key=i)
+          if not start:
+               st.stop()
+          else:
+               pass
+          if not end:
+               st.stop()
+          else:
+               pass
+          if not amount:
+               st.stop()
+          else:
+               pass
           clustery = cluster
           clusters.append(clustery)
           districty = district
           districts.append(districty)
-          weeky =int(week)-39
+          weeky =int(week) + 13
           uniquey = st.session_state['unique_number'] 
           areay = area
           doney = done
           formattedy = formatted
+          amounts.append(amount)
           weeks.append(weeky)
           uniques.append(uniquey)
           areas.append(areay)
@@ -275,15 +289,6 @@ if done:
           else:
                st.stop()
                
-     if area == 'PMTCT':
-          money = colt.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
-     else:
-          pass
-     if area == 'PMTCT':
-          if not money:
-             st.stop()
-          elif money <10000:
-               st.warning('**CHECK WHETHER THE MONEY IS LESS THAN 10,000**')
 #st.write(f'{districts} this')
 
 if num==1:
