@@ -389,6 +389,7 @@ except Exception as e:
     st.write(traceback.format_exc())
     st.write("COULDN'T CONNECT TO GOOGLE SHEET, TRY AGAIN")
     st.stop()
+st.write('HELLO')
 sheet1 = spreadsheet.worksheet("DONE")
 rows_to_append = df.values.tolist()
 sheet1.append_rows(rows_to_append, value_input_option='RAW')
