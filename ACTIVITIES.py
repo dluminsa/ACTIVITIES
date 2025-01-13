@@ -135,7 +135,7 @@ st.markdown('***ALL ENTRIES ARE REQUIRED**')
 #sss
 done = ''
 district = ''
-money = ''
+amount = ''
 mon = ''
 theme = ['CARE', 'TB', 'PMTCT', 'CQI']
 # Radio button to select a district
@@ -282,7 +282,7 @@ formatted = str(formatted)
 start = str(start)
 end = str(end)
 
-row1 =[ formatted, cluster,district, facility, area, done, number, start,  unique,end, wek, money]
+row1 =[ formatted, cluster,district, facility, area, done, number, start,  unique,end, wek, amount]
                
     # Prepare the credentials dictionary
 credentials_info = {
@@ -335,100 +335,6 @@ if submit:
             st.stop()  # Stop the Streamlit app here to let the user manually retry     
 else:
      pass 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-     #      st. write('SUBMITING')
-     #      conn = st.connection('gsheets', type=GSheetsConnection)
-     #      if 'exist_df' not in st.session_state:
-     #            exist = conn.read(worksheet= 'DONE', usecols=list(range(11)),ttl=1)
-     #            # Store the fetched data in session state
-     #            st.session_state['exist_df'] = exist
-     #      else:
-     #           exist = st.session_state['exist_df']
-     #      if exist.shape[0]<0:
-     #           st.info("SOMETHING WENT WRONG, COULDN'T CONNECT TO DATABASE")
-     #           time.sleep(1)
-     #           st.write("REFRESHING PAGE, RE-ENTER THIS PAPERWORK DETAILS")
-     #           time.sleep(3)
-     #           st.rerun(scope='app')
-     #           st.stop()
-     #      else:
-     #           pass 
-     #      if 'my_df' not in st.session_state:
-     #           st.session_state['my_df'] = df
-     #      else:
-     #            pass
-     #      df = st.session_state['my_df']
-                         
-     #      if df.shape[0]<0:
-     #            st.write('YOUR ENTRIES FOR THIS MOTHER WERE NOT CAPTURED')
-     #            time.sleep(1)
-     #            st.info("REFRESHING PAGE, RE-ENTER THIS MOTHER'S DETAILS")
-     #            time.sleep(2)
-     #            st.rerun(scope='app')
-     #            st.stop()
-     #      else:
-     #            pass  
-     #      updated = pd.concat([exist, df], ignore_index =True)
-     #      if updated.shape[0]>120000:
-     #           st.info("SOMETHING WENT WRONG, RE-ENTER THIS MOTHER'S DETAILS")
-     #           time.sleep(1)
-     #           st.write("REFRESHING PAGE, RE-ENTER THIS MOTHER'S DETAILS")
-     #           time.sleep(2)
-     #           st.rerun(scope='app')
-     #           st.stop()
-     #      else:
-     #      #existing= exist.dropna(how='all')
-     #           updated = pd.concat([exist, df], ignore_index =True)
-     #           conn.update(worksheet = 'DONE', data = updated)         
-     #           st.success('Your data above has been submitted')
-     #           st.write('RELOADING PAGE')
-     #           time.sleep(3)
-     #           st.markdown("""
-     #           <meta http-equiv="refresh" content="0">
-     #                """, unsafe_allow_html=True)
-
-     # except:
-     #           st.write("Couldn't submit, poor network") 
-     #           st.write('Click the submit button again')
-
-
-
-
-
-
-
 
 
 
