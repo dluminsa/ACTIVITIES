@@ -210,10 +210,10 @@ elif done:
      counts = counts[0]
      st.markdown(f'**NOTE: {statement}**')
      colt,coly,colx = st.columns([1,1,1])
-     number = colt.number_input(label=f'**{counts}**', value=None, max_value=500, min_value=1,step=1, format="%d")
+     number = colt.number_input(label=f'**{counts}**', value=None, max_value=500, min_value=1,step=1, format="%d", key = f'{1}b')
      start = coly.date_input(label='**ACTIVITY START DATE**', value=None)
      end = colx.date_input(label='**END DATE**',value=None)
-     amount = colt.number_input(label='**HOW MUCH ARE YOU PAYING**', value=None, max_value=None, min_value=10000,step=1, format="%d")
+     amount = colt.number_input(label='**HOW MUCH ARE YOU PAYING**', value=None, max_value=None, min_value=10000,step=1, format="%d", key = f'{1}a')
      if not number:
           st.stop()
      if not amount:
