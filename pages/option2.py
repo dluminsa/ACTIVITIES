@@ -318,7 +318,7 @@ df = pd.DataFrame({
           'END DATE': ends,
           'ID': uniques,
           'WEEK': weeks,
-          'AMOUNT': 'amounts
+          'AMOUNT': amounts
           })                                         
                                          
 dfd = df[df.duplicated(subset='FACILITY')]
