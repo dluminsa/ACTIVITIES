@@ -320,8 +320,7 @@ except Exception as e:
     st.write(traceback.format_exc())
     st.write("COULDN'T CONNECT TO GOOGLE SHEET, TRY AGAIN")
     st.stop()
-st.write(row1)
-st.stop()
+
 if submit:
         try:
             sheet1 = spreadsheet.worksheet("DONE")
