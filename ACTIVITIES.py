@@ -129,13 +129,6 @@ ALL =[ "BIGASA HC III","BUTENGA HC IV","KAGOGGO HC II","KIGANGAZZI HC II",
 ididistricts = ['BUKOMANSIMBI','BUTAMBALA', 'GOMBA','KALANGALA','KYOTERA', 'LYANTONDE', 'LWENGO', 'MASAKA CITY', 
                 'MASAKA DISTRICT', 'MPIGI','RAKAI', 'SEMBABULE', 'WAKISO']                                                     
 
-# file = r'PLANNED.csv'
-# dis = pd.read_excel(file)
-# dis1 = dis[dis['ORG'] == 'OTHERS'].copy()
-# alldistricts = dis1['DISTRICT'].unique()
-# alldistrictsidi = dis['DISTRICT'].unique()
-
-# Title of the Streamlit app
 
 st.markdown("<h4><b>PLANNED    ACTIVITIES   TRACKER</b></h4>", unsafe_allow_html=True)
 st.markdown('***ALL ENTRIES ARE REQUIRED**')
@@ -173,9 +166,6 @@ def generate_unique_number():
 # Initialize the unique number in session state if it doesn't exist
 if 'unique_number' not in st.session_state:
     st.session_state['unique_number'] = generate_unique_number()
-
-# Display the unique number
-
 
 #Display the selection
 with colb:
@@ -220,29 +210,15 @@ elif done:
      counts = counts[0]
      st.markdown(f'**NOTE: {statement}**')
      colt,coly,colx = st.columns([1,1,1])
-     number = colt.number_input(label=f'**{counts}**', value=None, max_value=None, min_value=None,step=1, format="%d")
+     number = colt.number_input(label=f'**{counts}**', value=None, max_value=500, min_value=1,step=1, format="%d")
      start = coly.date_input(label='**ACTIVITY START DATE**', value=None)
      end = colx.date_input(label='**END DATE**',value=None)
+     amount = colt.number_input(label='**HOW MUCH ARE YOU PAYING**', value=None, max_value=None, min_value=10000,step=1, format="%d")
      if not number:
           st.stop()
-     if area == 'PMTCT':
-          money = colt.number_input(label='**HOW MUCH ARE YOU PAYING?**', value=None, max_value=None, min_value=None,step=1, format="%d")
-     else:
-          pass
+     if not amount:
+          st.stop()
 
-     # if done == 'ICSDM':
-     #      if not (number and start and end):
-     #           st.stop()
-     #      else:
-     #           st.info('**KINDLY INCLUDE THE ART NOs FOR NS THAT WERE VISITED**')
-     #           num = int(number)
-     #           ARTS = []
-     #           for i in range (num+1):
-     #                colt,coly,colx = st.columns([1,1,1])
-     #                arts = colt.number_input(label='**ART NOs**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
-     #                ARTS.append(arts)
-                    
-          
      # Get the current date and time
 current_datetime = datetime.now()
 #today = current_datetime.strftime('%y/%m/%d')
@@ -259,19 +235,6 @@ if number and start and end:
           pass
 else:
      st.stop()
-if area == 'PMTCT':
-     if not money:
-        st.stop()
-     elif money <10000:
-          st.warning('**CHECK WHETHER THE MONEY IS LESS THAN 10,000**')
-else:
-     pass
-# dfp = pd.DataFrame(ARTS, columns=['ART NOs'])
-# dfp['DISTRICT'] = np.nan
-# dfp['FACILITY'] = np.nan
-# dfp['DISTRICT'] = dfp['DISTRICT'].fillna(district)
-# dfp['FACILITY'] = dfp['FACILITY'].fillna(facility)
-# dfp = dfp[['DISTRICT', 'FACILITY', 'ART NOs']]
 
 st.write(f"UNIQUE ID: {st.session_state['unique_number']}")
 unique = st.session_state['unique_number'] 
@@ -283,22 +246,11 @@ cola.write(f"**UNIQUE ID: {st.session_state['unique_number']}**")
 cola.markdown(f'**DISTRICT: {district}**')
 cola.markdown(f'**FACILITY: {facility}**')
 cola.markdown(f'**THEMATIC AREA: {area}**')
-if area == 'PMTCT':
-     cola.markdown(f'**AMOUNT: {money}**')
-     mon = [district, facility, money]
-else:
-     mon = None
-     pass
 
 colb.write(f'**ACTIVITY: {done}**')
 colb.markdown(f'**{counts}: {number}**')
 colb.markdown(f'**START DATE: {start}**')
 colb.markdown(f'**END DATE: {end}**')
-
-# if done == 'ICSDM':
-#      st.write(dfp)
-# else:
-#      pass
 
 date = datetime.now().date()
 formatted = date.strftime("%d-%m-%Y")
@@ -320,6 +272,7 @@ df = pd.DataFrame([{ 'DATE OF SUBMISSION': formatted,
                     'END DATE': end,
                     'ID' : unique,
                     'WEEK': week
+                    'AMOUNT': amount
 
                     }]) 
 
@@ -365,15 +318,9 @@ except Exception as e:
     st.write("COULDN'T CONNECT TO GOOGLE SHEET, TRY AGAIN")
     st.stop()
 if submit:
-        # if area!= 'PMTCT':
-        #      mon = 0
-        # else:
-        #      pass
         try:
             sheet1 = spreadsheet.worksheet("DONE")
-            #sheet2 = spreadsheet.worksheet("PMTCT")
             sheet1.append_row(row1, value_input_option='RAW')
-            #sheet2.append_row(value_input_option='RAW')
             st.success('Your data above has been submitted')
             time.sleep(2)
             st.write('RELOADING PAGE')
