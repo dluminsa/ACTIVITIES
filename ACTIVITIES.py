@@ -282,6 +282,7 @@ secrets = st.secrets["connections"]["gsheets"]
 formatted = str(formatted)
 start = str(start)
 end = str(end)
+unique = int(unique)
 
 row1 =[ formatted, cluster,district, facility, area, done, number, start,  unique,end, wek, amount]
                
