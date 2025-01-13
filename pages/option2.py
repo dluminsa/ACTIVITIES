@@ -391,6 +391,7 @@ except Exception as e:
     st.stop()
 st.write('HELLO')
 sheet1 = spreadsheet.worksheet("DONE")
+df[['START DATE', 'END DATE']] = df[['START DATE', 'END DATE']].astype(str)
 rows_to_append = df.values.tolist()
 sheet1.append_rows(rows_to_append, value_input_option='RAW')
 st.success('Your data above has been submitted')
