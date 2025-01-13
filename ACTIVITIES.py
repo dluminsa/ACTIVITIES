@@ -246,6 +246,7 @@ cola.write(f"**UNIQUE ID: {st.session_state['unique_number']}**")
 cola.markdown(f'**DISTRICT: {district}**')
 cola.markdown(f'**FACILITY: {facility}**')
 cola.markdown(f'**THEMATIC AREA: {area}**')
+cola.markdown(f'**AMOUNT: {amount:,}**')
 
 colb.write(f'**ACTIVITY: {done}**')
 colb.markdown(f'**{counts}: {number}**')
@@ -271,7 +272,7 @@ df = pd.DataFrame([{ 'DATE OF SUBMISSION': formatted,
                     'START DATE': start,
                     'END DATE': end,
                     'ID' : unique,
-                    'WEEK': week
+                    'WEEK': week,
                     'AMOUNT': amount
 
                     }]) 
