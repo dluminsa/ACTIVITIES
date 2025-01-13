@@ -259,7 +259,8 @@ cola,colb = st.columns(2)
 submit = cola.button('SUBMIT')
 current_time = time.localtime()
 week = time.strftime("%V", current_time)
-wek = int(week)-39
+# wek = int(week)-39
+wek = int(week) + 13
 
 #if submit:
 df = pd.DataFrame([{ 'DATE OF SUBMISSION': formatted,
@@ -272,7 +273,7 @@ df = pd.DataFrame([{ 'DATE OF SUBMISSION': formatted,
                     'START DATE': start,
                     'END DATE': end,
                     'ID' : unique,
-                    'WEEK': week,
+                    'WEEK': wek,
                     'AMOUNT': amount
 
                     }]) 
