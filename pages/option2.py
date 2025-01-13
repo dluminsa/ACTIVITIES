@@ -266,7 +266,7 @@ if done:
           districty = district
           districts.append(districty)
           weeky =int(week) + 13
-          uniquey = st.session_state['unique_number'] 
+          uniquey = int(st.session_state['unique_number'])
           areay = area
           doney = done
           formattedy = formatted
@@ -318,8 +318,8 @@ df = pd.DataFrame({
           'ACTIVITY': activit,
           'DONE': numbers,
           'START DATE': starts,
-          'END DATE': ends,
           'ID': uniques,
+          'END DATE': ends,
           'WEEK': weeks,
           'AMOUNT': amounts
           })                                         
