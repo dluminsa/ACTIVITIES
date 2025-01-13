@@ -242,10 +242,10 @@ if done:
           else:
                pass
           colt,coly,colx = st.columns([1,1,1])
-          number = colt.number_input(label=f'**{counts}**', value=None, max_value=None, min_value=None,step=1, format="%d", key=i)
+          number = colt.number_input(label=f'**{counts}**', value=None, max_value=None, min_value=None,step=1, format="%d", key=f'{i}b')
           start = coly.date_input(label='**ACTIVITY START DATE**', value=None, key=f'a{i}')
           end = colx.date_input(label='**END DATE**',value=None, key= f'b{i}')
-          amount = colt.number_input(label='**HOW MUCH ARE YOU PAYING FOR THIS FACILITY**', value=None, max_value= None, min_value=10000,step=1, format="%d", key=i)
+          amount = colt.number_input(label='**HOW MUCH ARE YOU PAYING FOR THIS FACILITY**', value=None, max_value= None, min_value=10000,step=1, format="%d", key= f'{i}a')
           if not start:
                st.stop()
           else:
