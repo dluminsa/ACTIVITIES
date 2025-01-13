@@ -267,7 +267,6 @@ if done:
           areay = area
           doney = done
           formattedy = formatted
-          amounts.append(amount)
           weeks.append(weeky)
           uniques.append(uniquey)
           areas.append(areay)
@@ -286,6 +285,7 @@ if done:
                     facilitiesy.append(facility)
                     starts.append(start)
                     ends.append(end)
+                    amounts.append(amount)
           else:
                st.stop()
                
@@ -317,20 +317,9 @@ df = pd.DataFrame({
           'START DATE': starts,
           'END DATE': ends,
           'ID': uniques,
-          'WEEK': weeks
-          })
-if area =='PMTCT':
-     df2 = pd.DataFrame([money], columns = ['AMOUNT'])
-     district = districts[0]
-     df2['DISTRICT'] = np.nan
-     df2['DISTRICT'] = df2['DISTRICT'].fillna(district)
-     df2['ACTIVITY'] = np.nan
-     df2['ACTIVITY'] = df2['ACTIVITY'].fillna(doned)
-     df2 = df2[['DISTRICT', 'ACTIVITY', 'AMOUNT']].copy()
-else:
-     pass
-
-                                         
+          'WEEK': weeks,
+          'AMOUNT': 'amounts
+          })                                         
                                          
 dfd = df[df.duplicated(subset='FACILITY')]
 check = dfd.shape[0]
@@ -355,35 +344,56 @@ colb.markdown(f'**FACILITY: {facility}**')
 colb.markdown(f'**THEMATIC AREA: {area}**')
 cola,colb,colc = st.columns(3)
 colb.write(f'**ACTIVITY: {done}**')
-if area == 'PMTCT':
-     cola.markdown(f'**AMOUNT: {money}**')
-else:
-     pass
 
-dfa = df[['FACILITY', 'DONE', 'START DATE', 'END DATE']].copy()
-#st.write(df)
+dfa = df[['FACILITY', 'DONE', 'START DATE', 'END DATE', 'AMOUNT']].copy()
 
 uniques = df['FACILITY']
 cola,colb = st.columns([3,1])
 cola.write(dfa) 
 submit = colb.button('**SUBMIT**')
 
+secrets = st.secrets["connections"]["gsheets"]
+credentials_info = {
+        "type": secrets["type"],
+        "project_id": secrets["project_id"],
+        "private_key_id": secrets["private_key_id"],
+        "private_key": secrets["private_key"],
+        "client_email": secrets["client_email"],
+        "client_id": secrets["client_id"],
+        "auth_uri": secrets["auth_uri"],
+        "token_uri": secrets["token_uri"],
+        "auth_provider_x509_cert_url": secrets["auth_provider_x509_cert_url"],
+        "client_x509_cert_url": secrets["client_x509_cert_url"]
+    }
+        
+try:
+    # Define the scopes needed for your application
+    scopes = ["https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive"]
+    
+     
+    credentials = Credentials.from_service_account_info(credentials_info, scopes=scopes)
+        
+        # Authorize and access Google Sheets
+    client = gspread.authorize(credentials)
+        
+        # Open the Google Sheet by URL
+    spreadsheetu = " https://docs.google.com/spreadsheets/d/1IgIltX9_2yvppb4YYoebRyyYwCqYZng62h0cRYPmAdE"     
+    spreadsheet = client.open_by_url(spreadsheetu)
+except Exception as e:
+        # Log the error message
+    st.write(f"CHECK: {e}")
+    st.write(traceback.format_exc())
+    st.write("COULDN'T CONNECT TO GOOGLE SHEET, TRY AGAIN")
+    st.stop()
+
 
 if submit:
      try:
           st. write('SUBMITING')
-          conn = st.connection('gsheets', type=GSheetsConnection)
-          exist = conn.read(worksheet= 'DONE', usecols=list(range(11)),ttl=5)
-          existing= exist.dropna(how='all')
-          updated = pd.concat([existing, df], ignore_index =True)
-          conn.update(worksheet = 'DONE', data = updated)  
-          if area == 'PMTCT':
-               exist2 = conn.read(worksheet= 'PMTCT', usecols=list(range(11)),ttl=5)
-               existing2= exist2.dropna(how='all')
-               updated = pd.concat([existing2, df2], ignore_index =True)
-               conn.update(worksheet = 'PMTCT', data = updated)
-          else:
-               pass
+          sheet1 = spreadsheet.worksheet("DONE")
+          rows_to_append = df.values.tolist()
+          sheet1.append_rows(rows_to_append, value_input_option='RAW')
           st.success('Your data above has been submitted')
           st.write('RELOADING PAGE')
           time.sleep(3)
@@ -394,8 +404,6 @@ if submit:
      except:
                st.write("Couldn't submit, poor network") 
                st.write('Click the submit button again')
-
-
 
 
 
