@@ -6,6 +6,8 @@ import numpy as np
 import time
 import datetime as dt
 from datetime import datetime, date
+from google.oauth2.service_account import Credentials
+from oauth2client.service_account import ServiceAccountCredentials
 
 st.set_page_config(
      page_title= 'ACTIVITY TRACKER'
