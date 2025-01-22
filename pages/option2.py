@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 import streamlit as st
+xxx
 import numpy as np
 import time
 import gspread
@@ -14,8 +15,8 @@ st.set_page_config(
      page_title= 'ACTIVITY TRACKER'
 )
 
-st.write('BEING UPDATED')
-st.stop()
+# st.write('BEING UPDATED')
+# st.stop()
 CLUSTER = {
     "KALANGALA": ["KALANGALA"],
     "KYOTERA": ["KYOTERA", "RAKAI"],
