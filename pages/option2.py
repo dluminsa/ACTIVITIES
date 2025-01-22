@@ -2,7 +2,6 @@ import pandas as pd
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 import streamlit as st
-xxx
 import numpy as np
 import time
 import gspread
