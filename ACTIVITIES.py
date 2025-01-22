@@ -14,8 +14,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 st.set_page_config(
      page_title= 'ACTIVITY TRACKER'
 )
-st.write('BEING UPDATED')
-st.stop()
+# st.write('BEING UPDATED')
+# st.stop()
 
 
 CLUSTER = {
