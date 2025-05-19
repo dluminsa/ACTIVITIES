@@ -1,9 +1,9 @@
-import panda s as pd 
+import pandas as pd 
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 import traceback
 import streamlit as st
-import time
+import timea
 import numpy as np
 #sdd
 import gspread
