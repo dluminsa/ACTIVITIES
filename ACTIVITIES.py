@@ -1,4 +1,4 @@
-import pandas as pd 
+import panda s as pd 
 from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 import traceback
