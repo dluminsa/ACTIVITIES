@@ -3,7 +3,7 @@ from datetime import datetime
 from streamlit_gsheets import GSheetsConnection
 import traceback
 import streamlit as st
-import timea
+import time
 import numpy as np
 #sdd
 import gspread
