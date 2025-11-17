@@ -400,7 +400,7 @@ if submit:
           sheet1.append_rows(rows_to_append, value_input_option='RAW')
           st.success('Your data above has been submitted')
           st.write('RELOADING PAGE')
-          time.sleep(2)
+          time.sleep(1)
           st.markdown("""
           <meta http-equiv="refresh" content="0">
                """, unsafe_allow_html=True)
