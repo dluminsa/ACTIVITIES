@@ -153,7 +153,7 @@ theme = ['CARE', 'TB', 'PMTCT', 'CQI']
 # Radio button to select a district
 
 # cluster = st.radio("**Choose a cluster:**", list(CLUSTER.keys()),horizontal=True, index=None)
-cluster = .MASAKA'
+cluster = 'MASAKA'
 # Show the facilities for the selected district and allow selection
 if cluster is not None:
     districts = CLUSTER[cluster]
