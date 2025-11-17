@@ -327,9 +327,8 @@ if submit:
             sheet1 = spreadsheet.worksheet("DONE")
             sheet1.append_row(row1, value_input_option='RAW')
             st.success('Your data above has been submitted')
-            time.sleep(2)
             st.write('RELOADING PAGE')
-            time.sleep(3)
+            time.sleep(2)
             st.markdown("""
                <meta http-equiv="refresh" content="0">
                     """, unsafe_allow_html=True)
