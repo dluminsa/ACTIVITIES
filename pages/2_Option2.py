@@ -25,7 +25,7 @@ st.set_page_config(
 #     "WAKISO": ['WAKISO']
 # }
 CLUSTER = {
-    "MASAKA": ['BUKOMANSIMBI', 'MASAKA CITY', 'SEMBABULE']
+    "MASAKA": ['BUKOMANSIMBI', 'MASAKA CITY', 'SEMBABULE', 'LWENGO']
 }
 
 FACILITIES ={  
