@@ -40,11 +40,12 @@ PMTCT,INTERNAL SQAs,MASAKA,SEMBABULE,3,COUNT EACH FACILITY VISITED AS AS ONE ,No
 PMTCT,PrEP REFILLS,MASAKA,SEMBABULE,6,COUNT EACH OUTREACH AS AS ONE ,No. of outreaches done,1560000
 PMTCT,PrEP REFILLS,MASAKA,BUKOMANSIMBI,6,COUNT EACH OUTREACH AS AS ONE ,No. of outreaches done,1240000
 PMTCT,PrEP REFILLS,MASAKA,MASAKA CITY,6,COUNT EACH OUTREACH AS AS ONE ,No. of outreaches done,752000
-PMTCT,EID SAMPLE COLLECTION,MASAKA,LWENGO,24,Count each outreach as one,No. of outreaches done,"1,008,000"
-PMTCT,CERVICAL CANCER CAMPS,MASAKA,LWENGO,48,Count each outreach as one,No. of outreaches done,"2,376,000"
-PMTCT,INTEGRATED STATIC OUTREACH,MASAKA,LWENGO,36,Count each outreach as one,No. of outreaches done,"1,512,000"
-PMTCT,JOINT MENTORSHIPS,MASAKA,LWENGO,10,Count each outreach as one,No. of outreaches done,"670,000"
-PMTCT,INTERNAL SQAs,MASAKA,LWENGO,8,Count each outreach as one,No. of outreaches done,"496,000"
-PMTCT,PrEP REFILLS,MASAKA,LWENGO,42,Count each outreach as one,No. of outreaches done,"1,820,000"
-PMTCT,LAB PERSONNEL/FLEX HOURS,MASAKA,LWENGO,72,Count each outreach as one,No. of outreaches done,"2,160,000"
+PMTCT,EID SAMPLE COLLECTION,MASAKA,LWENGO,24,Count each outreach as one,No. of outreaches done,1008000
+PMTCT,CERVICAL CANCER CAMPS,MASAKA,LWENGO,48,Count each outreach as one,No. of outreaches done,2376000
+PMTCT,INTEGRATED STATIC OUTREACH,MASAKA,LWENGO,36,Count each outreach as one,No. of outreaches done,1512000
+PMTCT,JOINT MENTORSHIPS,MASAKA,LWENGO,10,Count each outreach as one,No. of outreaches done,670000
+PMTCT,INTERNAL SQAs,MASAKA,LWENGO,8,Count each outreach as one,No. of outreaches done,496000
+PMTCT,PrEP REFILLS,MASAKA,LWENGO,42,Count each outreach as one,No. of outreaches done,1820000
+PMTCT,LAB PERSONNEL/FLEX HOURS,MASAKA,LWENGO,72,Count each outreach as one,No. of outreaches done,2160000
+
 
