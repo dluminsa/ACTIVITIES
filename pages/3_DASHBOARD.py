@@ -45,7 +45,6 @@ dfb = dfb.drop_duplicates(subset = ['ID','DONE','DISTRICT', 'FACILITY', 'ACTIVIT
 
 file = r'PLANNED.csv'
 dfa = pd.read_csv(file)
-st.write(dfa)
 
 dfa= dfa[['DISTRICT', 'AREA','ACTIVITY', 'PLANNED', 'AMOUNT']]
 
@@ -173,8 +172,6 @@ plana = filt['AMOUNT'].sum()
 conducteda = filtered_dfb['AMOUNT'].sum()
 dfspent = filtered_dfb.copy()
 notdonea = plana - conducteda
-st.write(conducteda)
-st.write(plana)
 pers = int((conducteda/plana)*100)
      
 #with st.expander('**CLICK HERE TO SEE EXPENDITURE**'):
